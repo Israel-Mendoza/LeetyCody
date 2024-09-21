@@ -1,4 +1,4 @@
-package dev.artisra.linkedlist
+package dev.artisra.topinterview150.linkedlist
 
 /// https://leetcode.com/problems/partition-list/description/
 
