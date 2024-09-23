@@ -1,6 +1,6 @@
 package dev.artisra.topinterview150.linkedlist
 
-/// https://leetcode.com/problems/partition-list/description/
+// https://leetcode.com/problems/partition-list/description/
 
 class PartitionList {
 

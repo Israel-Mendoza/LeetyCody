@@ -1,5 +1,7 @@
 package dev.artisra.topinterview150.arraystring
 
+// https://leetcode.com/problems/remove-element/description/
+
 class RemoveElement {
     fun removeElement(nums: IntArray, value: Int): Int {
 

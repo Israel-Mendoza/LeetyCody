@@ -1,5 +1,7 @@
 package dev.artisra.topinterview150.arraystring
 
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
 class RemoveDuplicatesFromSortedArray {
     fun removeDuplicates(nums: IntArray): Int {
         // There are 0 different items in an empty array

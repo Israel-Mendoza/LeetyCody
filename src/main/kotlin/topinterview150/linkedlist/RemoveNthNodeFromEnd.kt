@@ -1,6 +1,6 @@
 package dev.artisra.topinterview150.linkedlist
 
-/// https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
 class RemoveNthNodeFromEnd {
 
