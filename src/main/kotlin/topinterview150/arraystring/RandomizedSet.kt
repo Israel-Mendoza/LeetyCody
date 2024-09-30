@@ -1,5 +1,7 @@
 package dev.artisra.topinterview150.arraystring
 
+// https://leetcode.com/problems/insert-delete-getrandom-o1/description/
+
 class RandomizedSet {
 
     private val elementMap = mutableMapOf<Int, Int>()
