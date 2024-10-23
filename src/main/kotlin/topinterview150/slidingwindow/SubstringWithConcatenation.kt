@@ -3,35 +3,61 @@ package dev.artisra.topinterview150.slidingwindow
 // https://leetcode.com/problems/substring-with-concatenation-of-all-words/description/
 
 class SubstringWithConcatenation {
-    fun findSubstring(s: String, words: Array<String>): List<Int> {
-        // TODO: This implementation does not work when the words array contains duplicates
+    fun findSubstring(str: String, words: Array<String>): List<Int> {
+
         val result = mutableListOf<Int>()
         val wordLength = words[0].length
-        val concatenatedStringLength = words.size * wordLength
         var a = 0
 
-        while (a < s.length - concatenatedStringLength) {
-            val wordsSet = words.toMutableList()
-            var m = a
-            while (m < a + concatenatedStringLength) {
-                var n = m
-                while (n - m < wordLength) n++
-                val currentSubstring = s.substring(m until n)
-                if (currentSubstring !in wordsSet) {
-                    a = if (a == m) n else m
-                    break
-                }
-                wordsSet.remove(currentSubstring)
-
-                if (wordsSet.isEmpty()) {
-                    result.add(a)
-                    a += wordLength
-                    break
-                }
-
-                m = n
+        while (a <= str.length - words.size * wordLength) {
+            val wordsMap = words.createWordsHashMap()
+            val currentWord = str.substring(a until a + wordLength)
+            if (currentWord !in wordsMap) {
+                a++
+                continue
             }
+
+            wordsMap.decreaseKey(currentWord) // Decreasing count of initial word
+            if (wordsMap.isEmpty()) {
+                result.add(a)
+                break
+            }
+
+            var left = a + wordLength
+            var right = left + wordLength
+            while (true) {
+                val nextWord = str.substring(left until right)
+                if (nextWord !in wordsMap) {
+                    break
+                }
+
+                wordsMap.decreaseKey(nextWord)
+                if (wordsMap.isEmpty()) {
+                    result.add(a)
+                    break
+                }
+                left += wordLength
+                right += wordLength
+            }
+            a++
         }
         return result
+    }
+
+    private fun Array<String>.createWordsHashMap(): MutableMap<String, Int> {
+        val result = mutableMapOf<String, Int>()
+        this.forEach {
+            result.put(it, result.getOrDefault(it, 0) + 1)
+        }
+        return result
+    }
+
+    private fun MutableMap<String, Int>.decreaseKey(key: String) {
+        val currentValue = this.getOrDefault(key, 0)
+        if (currentValue > 1) {
+            this[key] = currentValue - 1
+        } else {
+            this.remove(key)
+        }
     }
 }
