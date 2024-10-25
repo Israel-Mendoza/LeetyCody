@@ -1,4 +1,4 @@
-package topinterview150.arraystring;
+package bocanvi.topinterview150.arraystring;
 // https://leetcode.com/problems/majority-element/description/?envType=study-plan-v2&envId=top-interview-150
 
 import java.util.HashMap;

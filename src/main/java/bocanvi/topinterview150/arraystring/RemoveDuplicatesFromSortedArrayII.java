@@ -1,4 +1,4 @@
-package topinterview150.arraystring;
+package bocanvi.topinterview150.arraystring;
 
 import java.util.Arrays;
 

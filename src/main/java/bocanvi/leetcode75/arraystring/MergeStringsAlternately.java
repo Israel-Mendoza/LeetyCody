@@ -1,4 +1,4 @@
-package leetcode75.arraystring;
+package bocanvi.leetcode75.arraystring;
 
 public class MergeStringsAlternately {
     public void solution() {
