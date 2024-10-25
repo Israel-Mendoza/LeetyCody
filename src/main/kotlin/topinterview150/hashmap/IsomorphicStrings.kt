@@ -9,18 +9,19 @@ class IsomorphicStrings {
 
         // Using a couple of hash maps
         val sMap = mutableMapOf<Char, Char>()
-        val tMap = mutableMapOf<Char, Char>()
+        val tSet = mutableSetOf<Char>()
 
         for (i in s.indices) {
             // Populating the maps if the entries don't exist.
-            if (s[i] !in sMap && t[i] !in tMap) {
+            if (s[i] !in sMap) {
+                if (t[i] in tSet) return false
                 sMap[s[i]] = t[i]
-                tMap[t[i]] = s[i]
-                continue
+                tSet.add(t[i])
+
+            } else if (sMap[s[i]] != t[i]) {
+                return false
             }
 
-            // Existing maps must correspond to other
-            if (sMap[s[i]] != t[i] || tMap[t[i]] != s[i]) return false
         }
 
         return true
