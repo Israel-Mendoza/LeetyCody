@@ -3,11 +3,6 @@ package dev.artisra.topinterview150.linkedlist
 // https://leetcode.com/problems/partition-list/description/
 
 class PartitionList {
-
-    inner class ListNode(var value: Int) {
-        var next: ListNode? = null
-    }
-
     fun partition(head: ListNode?, x: Int): ListNode? {
 
         if (head == null) return null

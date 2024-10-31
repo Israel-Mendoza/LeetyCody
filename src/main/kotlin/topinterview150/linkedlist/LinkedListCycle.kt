@@ -25,10 +25,3 @@ class LinkedListCycle {
         return false
     }
 }
-
-/**
- * Represents a node in a linked list.
- */
-data class ListNode(var value: Int) {
-    var next: ListNode? = null
-}

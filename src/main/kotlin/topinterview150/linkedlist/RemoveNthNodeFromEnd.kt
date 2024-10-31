@@ -3,14 +3,6 @@ package dev.artisra.topinterview150.linkedlist
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
 class RemoveNthNodeFromEnd {
-
-    class ListNode(var value: Int) {
-        var next: ListNode? = null
-        override fun toString(): String {
-            return "ListNode(value=$value,next=$next)"
-        }
-    }
-
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
         // Using three temporary nodes:
         var fast = head
