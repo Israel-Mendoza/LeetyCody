@@ -8,22 +8,33 @@ class IsomorphicStrings {
         if (s.length != t.length) return false // Different length strings are not isomorphic
 
         // Using a couple of hash maps
-        val sMap = mutableMapOf<Char, Char>()
-        val tSet = mutableSetOf<Char>()
+        val (sMap, tMap) = getCharMappings(s, t)
 
         for (i in s.indices) {
-            // Populating the maps if the entries don't exist.
-            if (s[i] !in sMap) {
-                if (t[i] in tSet) return false
-                sMap[s[i]] = t[i]
-                tSet.add(t[i])
-
-            } else if (sMap[s[i]] != t[i]) {
-                return false
-            }
-
+            // Existing maps must correspond to other
+            if (sMap[s[i]] != t[i] || tMap[t[i]] != s[i]) return false
         }
 
         return true
+    }
+
+    companion object {
+        fun getCharMappings(s: String, t: String): Pair<Map<Char, Char>, Map<Char, Char>> {
+
+            val sMap = mutableMapOf<Char, Char>()
+            val tMap = mutableMapOf<Char, Char>()
+
+            if (s.length == t.length) {
+                for (i in s.indices) {
+                    // Populating the maps if the entries don't exist.
+                    if (s[i] !in sMap && t[i] !in tMap) {
+                        sMap[s[i]] = t[i]
+                        tMap[t[i]] = s[i]
+                    }
+                }
+            }
+
+            return sMap to tMap
+        }
     }
 }

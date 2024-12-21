@@ -6,12 +6,17 @@ package artisra.topinterview150.linkedlist;
  * Each node contains an integer value and a reference to the next node in the list.
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
         next = null;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 
     @Override
